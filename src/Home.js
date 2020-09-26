@@ -14,6 +14,7 @@ import ForecastItem from './components/elements/ForecastItem'
 import StationThumb from './components/elements/StationThumb'
 import SnackBarError from './components/elements/SnackBarError'
 import SnackBarWarn from './components/elements/SnackBarWarn'
+
 import { API_KEY, SEARCH_URL, FEED_URL, FEED_KEY, LOCAL_URL } from './config'
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +69,10 @@ const Home = ({ className, ...rest }) => {
 
   useEffect(() => {
     feedFetch(`${FEED_URL}Melbourne${FEED_KEY}`)
-    localFetch(LOCAL_URL)
+    //localFetch(LOCAL_URL)
+    localFetch(
+      `http://api.waqi.info/feed/here/?token=8d8e978e647d2b0a8c17c04ba331c0117cd06dc8`
+    )
     fetchSearch(`${SEARCH_URL}melbourne${API_KEY}`)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
