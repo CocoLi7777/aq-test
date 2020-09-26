@@ -49,8 +49,9 @@ const Home = ({ className, ...rest }) => {
   const classes = useStyles()
   const [inputError, setInputError] = useState(false)
   const [{ feed, feedError }, feedFetch] = useFeedFetch()
-  const [{ local }, localFetch] = useLocalFetch()
-  const [{ searchedData }, fetchSearch] = useSearchFetch()
+  const [{ local, localError }, localFetch] = useLocalFetch()
+
+  const [{ searchedData, searchError }, fetchSearch] = useSearchFetch()
 
   const searchCities = (value) => {
     if (value === '') {
@@ -69,7 +70,7 @@ const Home = ({ className, ...rest }) => {
     feedFetch(`${FEED_URL}Melbourne${FEED_KEY}`)
     localFetch(LOCAL_URL)
     fetchSearch(`${SEARCH_URL}melbourne${API_KEY}`)
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -81,6 +82,7 @@ const Home = ({ className, ...rest }) => {
         geo={local.geo}
       />
       <SearchBar callback={searchCities} />
+      {localError === true && searchError === true && <SnackBarError />}
       {inputError === true && <SnackBarError />}
       {feedError !== '' && inputError === false && <SnackBarWarn />}
 

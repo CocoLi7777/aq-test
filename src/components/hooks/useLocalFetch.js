@@ -21,7 +21,7 @@ const useLocalFetch = () => {
     }
   }
 
-  return [{ local }, localFetch]
+  return [{ local, localError }, localFetch]
 }
 
 export default useLocalFetch

@@ -13,7 +13,7 @@ const useSearchFetch = () => {
     }
   }
 
-  return [{ searchedData }, fetchSearch]
+  return [{ searchedData, searchError }, fetchSearch]
 }
 
 export default useSearchFetch
