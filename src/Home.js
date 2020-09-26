@@ -69,10 +69,7 @@ const Home = ({ className, ...rest }) => {
 
   useEffect(() => {
     feedFetch(`${FEED_URL}Melbourne${FEED_KEY}`)
-    //localFetch(LOCAL_URL)
-    localFetch(
-      `http://api.waqi.info/feed/here/?token=8d8e978e647d2b0a8c17c04ba331c0117cd06dc8`
-    )
+    localFetch(LOCAL_URL)
     fetchSearch(`${SEARCH_URL}melbourne${API_KEY}`)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 

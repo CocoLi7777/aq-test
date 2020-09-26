@@ -8,21 +8,19 @@ import Button from '@material-ui/core/Button'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    alignItems: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'center',
     margin: '20px auto',
-    maxWidth: 670,
   },
 
   search: {
     border: '2px #f0efeb solid',
     height: 50,
-
     position: 'relative',
     borderRadius: '5px',
     '&:hover': {
       backgroundColor: '#f0efeb',
     },
-
     maxWidth: 500,
     width: '100%',
     fontSize: '30px',
@@ -38,16 +36,19 @@ const useStyles = makeStyles((theme) => ({
   },
   inputRoot: {
     color: 'inherit',
+
+    width: '100%',
   },
+
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
-    width: '400px',
+    width: '100%',
     height: '30px',
   },
   btn: {
-    width: '150px',
+    width: '40%',
     height: '50px',
     fontWeight: 'bold',
   },
@@ -67,7 +68,7 @@ const SearchBar = ({ callback }) => {
 
   return (
     <Grid container className={classes.root} spacing={2}>
-      <Grid item>
+      <Grid item sm={4} xs={12}>
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
@@ -84,7 +85,7 @@ const SearchBar = ({ callback }) => {
           />
         </div>
       </Grid>
-      <Grid item>
+      <Grid item sm={4} xs={12}>
         <Button
           variant="contained"
           color="primary"
