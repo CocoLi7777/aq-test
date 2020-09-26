@@ -48,15 +48,12 @@ const useStyles = makeStyles((theme) => ({
 const Home = ({ className, ...rest }) => {
   const classes = useStyles()
   const [inputError, setInputError] = useState(false)
-  const [{ feed, feedLoading, feedError }, feedFetch] = useFeedFetch()
-  const [{ local, localLoading, localError }, localFetch] = useLocalFetch()
-  const [
-    { searchedData, searchLoading, searchError },
-    fetchSearch,
-  ] = useSearchFetch()
+  const [{ feed, feedError }, feedFetch] = useFeedFetch()
+  const [{ local }, localFetch] = useLocalFetch()
+  const [{ searchedData }, fetchSearch] = useSearchFetch()
 
   const searchCities = (value) => {
-    if (value == '') {
+    if (value === '') {
       setInputError(true)
     } else {
       setInputError(false)
@@ -84,8 +81,8 @@ const Home = ({ className, ...rest }) => {
         geo={local.geo}
       />
       <SearchBar callback={searchCities} />
-      {inputError == true && <SnackBarError />}
-      {feedError != '' && inputError == false && <SnackBarWarn />}
+      {inputError === true && <SnackBarError />}
+      {feedError !== '' && inputError === false && <SnackBarWarn />}
 
       <Grid
         {...rest}
