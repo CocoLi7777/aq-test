@@ -47,7 +47,7 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 ### What's still going on...
 
 - I'm doing end to end testing using Cypress.
-- Currently the local AQI information showed improperly, because I use cors-anywhere service. I'm searching alternative solution.
+- Currently the local AQI information showed based on the IP address of cors-anywhere service. I'm searching alternative solution.
 
 ## Prerequisites
 
