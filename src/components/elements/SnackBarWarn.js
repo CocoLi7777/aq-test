@@ -33,7 +33,7 @@ export default function SnackbarWarn() {
 
   return (
     <div className={classes.root}>
-      <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
         <Alert severity="warning" onClose={handleClose}>
           Sorry, No AQI record founded. Please search other cities.
         </Alert>

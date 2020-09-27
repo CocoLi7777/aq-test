@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import clsx from 'clsx'
 import { Grid } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/styles'
 import List from '@material-ui/core/List'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
@@ -77,7 +78,7 @@ const Home = ({ className, ...rest }) => {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <>
+    <Grid container>
       {localLoading ? (
         <Spinner />
       ) : (
@@ -152,7 +153,7 @@ const Home = ({ className, ...rest }) => {
           </Grid>
         )}
       </Grid>
-    </>
+    </Grid>
   )
 }
 

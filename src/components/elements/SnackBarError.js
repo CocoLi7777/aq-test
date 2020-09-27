@@ -30,7 +30,7 @@ export default function SnackbarError() {
 
   return (
     <div className={classes.root}>
-      <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
         <Alert severity="error" onClose={handleClose}>
           Please input the name of city for Searching.
         </Alert>
