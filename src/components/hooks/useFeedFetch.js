@@ -3,8 +3,10 @@ import { useState } from 'react'
 const useFeedFetch = () => {
   const [feed, setFeed] = useState({})
   const [feedError, setFeedError] = useState('')
+  const [feedLoading, setFeedLoading] = useState(false)
 
   const feedFetch = async (endpoint) => {
+    setFeedLoading(true)
     try {
       const result = await (await fetch(endpoint)).json()
       setFeed({
@@ -17,8 +19,9 @@ const useFeedFetch = () => {
     } catch (error) {
       setFeedError(error)
     }
+    setFeedLoading(false)
   }
-  return [{ feed, feedError }, feedFetch]
+  return [{ feed, feedError, feedLoading }, feedFetch]
 }
 
 export default useFeedFetch

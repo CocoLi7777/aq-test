@@ -47,6 +47,12 @@ const useStyles = makeStyles((theme) => ({
 export default function LocalForm({ time, name, url, aqi, geo }) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+  if (!name) {
+    name = 'Fairyland on earth'
+  }
+  if (!aqi) {
+    aqi = 0
+  }
 
   const handleExpandClick = () => {
     setExpanded(!expanded)

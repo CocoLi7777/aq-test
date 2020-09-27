@@ -14,7 +14,7 @@ import ForecastItem from './components/elements/ForecastItem'
 import StationThumb from './components/elements/StationThumb'
 import SnackBarError from './components/elements/SnackBarError'
 import SnackBarWarn from './components/elements/SnackBarWarn'
-
+import Spinner from './components/elements/Spinner'
 import { API_KEY, SEARCH_URL, FEED_URL, FEED_KEY, LOCAL_URL } from './config'
 
 const useStyles = makeStyles((theme) => ({
@@ -49,10 +49,13 @@ const useStyles = makeStyles((theme) => ({
 const Home = ({ className, ...rest }) => {
   const classes = useStyles()
   const [inputError, setInputError] = useState(false)
-  const [{ feed, feedError }, feedFetch] = useFeedFetch()
-  const [{ local, localError }, localFetch] = useLocalFetch()
+  const [{ feed, feedError, feedLoading }, feedFetch] = useFeedFetch()
+  const [{ local, localError, localLoading }, localFetch] = useLocalFetch()
 
-  const [{ searchedData, searchError }, fetchSearch] = useSearchFetch()
+  const [
+    { searchedData, searchError, searchLoading },
+    fetchSearch,
+  ] = useSearchFetch()
 
   const searchCities = (value) => {
     if (value === '') {
@@ -75,13 +78,17 @@ const Home = ({ className, ...rest }) => {
 
   return (
     <>
-      <LocalForm
-        name={local.name}
-        aqi={local.aqi}
-        time={local.time}
-        url={local.url}
-        geo={local.geo}
-      />
+      {localLoading ? (
+        <Spinner />
+      ) : (
+        <LocalForm
+          name={local.name}
+          aqi={local.aqi}
+          time={local.time}
+          url={local.url}
+          geo={local.geo}
+        />
+      )}
       <SearchBar callback={searchCities} />
       {localError === true && searchError === true && <SnackBarError />}
       {inputError === true && <SnackBarError />}
@@ -93,44 +100,57 @@ const Home = ({ className, ...rest }) => {
         container
         spacing={1}
       >
-        <Grid item sm={4} xs={12}>
-          <DetailsBoard
-            name={feed.name}
-            aqi={feed.aqi}
-            time={feed.time}
-            url={feed.url}
-          />
-        </Grid>
-        <Grid item sm={4} xs={12}>
-          <List className={classes.list}>
-            <Typography className={classes.title}>
-              {feed.name} AQI Forecast:{' '}
-            </Typography>
-            {feed.forecast &&
-              feed.forecast.map((item) => (
-                <ForecastItem
-                  key={item.id}
-                  id={item.id}
-                  avg={item.avg}
-                  date={item.day}
-                />
-              ))}
-          </List>
-        </Grid>
-        <Grid item sm={4} xs={12}>
-          <List className={classes.list}>
-            <Typography className={classes.title}>Station List: </Typography>
-            {searchedData &&
-              searchedData.map((item) => (
-                <StationThumb
-                  key={item.id}
-                  id={item.id}
-                  aqi={item.aqi}
-                  name={item.station.name}
-                />
-              ))}
-          </List>
-        </Grid>
+        {feedLoading ? (
+          <Spinner />
+        ) : (
+          <Grid item sm={4} xs={12}>
+            <DetailsBoard
+              name={feed.name}
+              aqi={feed.aqi}
+              time={feed.time}
+              url={feed.url}
+            />
+          </Grid>
+        )}
+        {feedLoading ? (
+          <Spinner />
+        ) : (
+          <Grid item sm={4} xs={12}>
+            <List className={classes.list}>
+              <Typography className={classes.title}>
+                {feed.name} AQI Forecast:{' '}
+              </Typography>
+              {feed.forecast &&
+                feed.forecast.map((item) => (
+                  <ForecastItem
+                    key={item.id}
+                    id={item.id}
+                    avg={item.avg}
+                    date={item.day}
+                  />
+                ))}
+            </List>
+          </Grid>
+        )}
+
+        {searchLoading ? (
+          <Spinner />
+        ) : (
+          <Grid item sm={4} xs={12}>
+            <List className={classes.list}>
+              <Typography className={classes.title}>Station List: </Typography>
+              {searchedData &&
+                searchedData.map((item) => (
+                  <StationThumb
+                    key={item.id}
+                    id={item.id}
+                    aqi={item.aqi}
+                    name={item.station.name}
+                  />
+                ))}
+            </List>
+          </Grid>
+        )}
       </Grid>
     </>
   )
