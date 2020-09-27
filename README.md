@@ -51,16 +51,16 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 
 ## Prerequisites
 
-NPM - Install NPM for all dependencies both in server and client.
+NPM - Install NPM for all dependencies.
 
 ## Quick Start
 
-Install dependencies for server:
+Install dependencies:
 npm install
 
 ## Running locally
 
-Run the client:
+Run the application:
 npm start
 
 ## One highlight when running locally
