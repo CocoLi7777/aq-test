@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import clsx from 'clsx'
 import { Grid } from '@material-ui/core'
-import { ThemeProvider } from '@material-ui/styles'
 import List from '@material-ui/core/List'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
@@ -93,8 +92,8 @@ const Home = ({ className, ...rest }) => {
       <SearchBar callback={searchCities} />
       {localError === true && searchError === true && <SnackBarError />}
       {inputError === true && <SnackBarError />}
-      {feedError !== '' && inputError === false && <SnackBarWarn />}
 
+      {feedError !== '' && inputError === false && <SnackBarWarn />}
       <Grid
         {...rest}
         className={clsx(classes.root, className)}

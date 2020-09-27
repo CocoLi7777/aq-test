@@ -12,9 +12,12 @@ const useStyles = makeStyles((theme) => ({
 
   header: {
     margin: '0 auto',
+    height: '100%',
   },
   title: {
     fontSize: '30px',
+    height: '50px',
+    lineHeight: '50px',
 
     alignItems: 'center',
     alignContent: 'center',
@@ -27,7 +30,7 @@ export default function Header() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <Grid container className={classes.header}>
             <Grid item xs={9} sm={9} className={classes.title}>
               Air Quality Index
