@@ -1,4 +1,4 @@
-# REAL-TIME AQI-Index APP
+# REAL-TIME AQI-BOARD APP
 
 ## Content
 
