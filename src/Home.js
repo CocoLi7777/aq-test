@@ -75,7 +75,6 @@ const Home = ({ className, ...rest }) => {
     localFetch(LOCAL_URL)
     fetchSearch(`${SEARCH_URL}melbourne${API_KEY}`)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
   return (
     <Grid container>
       {localLoading ? (
@@ -93,7 +92,7 @@ const Home = ({ className, ...rest }) => {
       {localError === true && searchError === true && <SnackBarError />}
       {inputError === true && <SnackBarError />}
 
-      {feedError !== '' && inputError === false && <SnackBarWarn />}
+      {feedError === true && inputError === false && <SnackBarWarn />}
       <Grid
         {...rest}
         className={clsx(classes.root, className)}

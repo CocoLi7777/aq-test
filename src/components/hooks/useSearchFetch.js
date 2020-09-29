@@ -9,6 +9,9 @@ const useSearchFetch = () => {
     setSearchLoading(true)
     try {
       const result = await (await fetch(endpoint)).json()
+      if (result.data.length == 0) {
+        setSearchError(true)
+      }
       setSearchedData([...result.data])
     } catch (error) {
       setSearchError(true)

@@ -1,7 +1,7 @@
 /* If run the app locally, please choose the second API-URL*/
 
-const API_URL = 'https://cors-anywhere.herokuapp.com/http://api.waqi.info/'
-//const API_URL = 'http://api.waqi.info/'
+//const API_URL = 'https://cors-anywhere.herokuapp.com/http://api.waqi.info/'
+const API_URL = 'http://api.waqi.info/'
 
 const API_KEY = '&token=8d8e978e647d2b0a8c17c04ba331c0117cd06dc8'
 const FEED_KEY = '/?token=8d8e978e647d2b0a8c17c04ba331c0117cd06dc8'
