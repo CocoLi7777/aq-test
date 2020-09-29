@@ -44,6 +44,14 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 - Setup Continuous Deployment using Github and [Heroku](https://www.heroku.com/), having continuously improvement to the application.
 - Using cors-anywhere solution to enable cross-origin requests.
 
+## Running test
+
+1. run npm start first and keep the program running
+
+2. npm run test-e2e to lauch the test
+
+[![Test Demo](http://img.youtube.com/vi/ulREWSvBnq4/0.jpg)](https://www.youtube.com/embed/Br0COHopKNo)
+
 ### What's still going on...
 
 - I'm doing end to end testing using Cypress.
