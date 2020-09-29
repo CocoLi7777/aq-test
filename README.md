@@ -50,7 +50,7 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 
 2. npm run test-e2e to lauch the test
 
-[![Test Demo](http://img.youtube.com/vi/ulREWSvBnq4/0.jpg)](https://www.youtube.com/embed/Br0COHopKNo)
+[![Test Demo](https://i9.ytimg.com/vi/Br0COHopKNo/mq3.jpg?sqp=CIT5yfsF&rs=AOn4CLBNmUSb0aSoB5lWxAXLk5vSy30tQA)](https://www.youtube.com/embed/Br0COHopKNo)
 
 ### What's still going on...
 
