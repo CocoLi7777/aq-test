@@ -6,6 +6,7 @@
 - [Live Demo](#live-demo)
 - [Details](#details)
   - [Highlights](#highlights)
+  - [End to end Test](#running-test)
   - [What's still going on...](#what's-still-going-on...)
 - [Prerequisites](#prerequisites)
 - [Quick Start](#quick-start)
