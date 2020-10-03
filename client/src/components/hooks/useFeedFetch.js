@@ -9,7 +9,7 @@ const useFeedFetch = () => {
     setFeedLoading(true)
     try {
       const result = await (await fetch(endpoint)).json()
-      if (result.status == 'error') {
+      if (result.status === 'error') {
         setFeedError(true)
       }
       setFeed({
@@ -20,7 +20,7 @@ const useFeedFetch = () => {
         forecast: result.data.forecast.daily.pm25,
       })
     } catch (error) {
-      console.log(error)
+      setFeedError(true)
     }
     setFeedLoading(false)
   }

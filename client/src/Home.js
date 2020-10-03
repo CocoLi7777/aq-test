@@ -15,7 +15,7 @@ import StationThumb from './components/elements/StationThumb'
 import SnackBarError from './components/elements/SnackBarError'
 import SnackBarWarn from './components/elements/SnackBarWarn'
 import Spinner from './components/elements/Spinner'
-import { API_KEY, SEARCH_URL, FEED_URL, FEED_KEY, LOCAL_URL } from './config'
+import { SEARCH_URL, FEED_URL, LOCAL_URL } from './config'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,17 +64,22 @@ const Home = ({ className, ...rest }) => {
       setInputError(false)
     }
 
-    const endpointSearch = `${SEARCH_URL}${value}${API_KEY}`
-    const endpointFeed = `${FEED_URL}${value}${FEED_KEY}`
+    let endpointSearch = `${SEARCH_URL}${value}`
+    let endpointFeed = `${FEED_URL}${value}`
+    if (value === '') {
+      endpointSearch = `${SEARCH_URL}melbourne`
+      endpointFeed = `${FEED_URL}melbourne`
+    }
     fetchSearch(endpointSearch)
     feedFetch(endpointFeed)
   }
 
   useEffect(() => {
-    feedFetch(`${FEED_URL}Melbourne${FEED_KEY}`)
+    feedFetch(`${FEED_URL}Melbourne`)
     localFetch(LOCAL_URL)
-    fetchSearch(`${SEARCH_URL}melbourne${API_KEY}`)
+    fetchSearch(`${SEARCH_URL}melbourne`)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <Grid container>
       {localLoading ? (
