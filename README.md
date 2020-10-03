@@ -7,7 +7,7 @@
 - [Details](#details)
   - [Highlights](#highlights)
   - [End to end Test](#running-test)
-  - [What's still going on...](#what's-still-going-on...)
+  - [New Improvement...](#new-improvement...)
 - [Prerequisites](#prerequisites)
 - [Quick Start](#quick-start)
 - [Running locally](#running-locally)
@@ -53,9 +53,12 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 
 [![Test Demo](https://i9.ytimg.com/vi/Br0COHopKNo/mq3.jpg?sqp=CIT5yfsF&rs=AOn4CLBNmUSb0aSoB5lWxAXLk5vSy30tQA)](https://www.youtube.com/embed/Br0COHopKNo)
 
-### What's still going on...
+### New Improvement...
 
-- Currently the local AQI information showed based on the IP address of cors-anywhere service. I'm searching alternative solution.
+- Issue: I got CORS (Cross-Origin Resource Sharing) “issues” when I deployed the application on Heroku.
+- First solution: I used cors-anywhere service(https://cors-anywhere.herokuapp.com/) but found there is limited visit and the response speed is very slow.
+- Improved solution: I improved it creating back-end proxy service to avoid CORS issues.
+
 
 ## Prerequisites
 
