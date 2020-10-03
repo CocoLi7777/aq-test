@@ -32,8 +32,6 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 
 ## Details:
 
-​
-
 ### Highlights
 
 - Consume 3 API for retrieving data for city feed, gelocalized feed(ip based) and all stations.
@@ -71,8 +69,16 @@ npm install
 
 ## Running locally
 
-Run the application:
-npm start
+Run the client & server with concurrently
+npm run dev
+
+Run the Express server only
+npm run server
+
+Run the React client only
+npm run client
+
+Server runs on http://localhost:5000 and client on http://localhost:3000 
 
 ## One highlight when running locally
 
