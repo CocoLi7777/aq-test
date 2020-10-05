@@ -6,6 +6,7 @@
 - [Live Demo](#live-demo)
 - [Details](#details)
   - [Highlights](#highlights)
+  - [Unit Test](#running-unit-test)
   - [End to end Test](#running-test)
   - [New Improvement...](#new-improvement...)
 - [Prerequisites](#prerequisites)
@@ -43,9 +44,18 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 - Setup Continuous Deployment using Github and [Heroku](https://www.heroku.com/), having continuously improvement to the application.
 - Using cors-anywhere solution to enable cross-origin requests.
 
-## Running test
+## Running unit test
 
-1. run npm start first and keep the program running
+1. run npm run dev first and keep the program running
+
+2. npm run test to lauch the test
+
+3. Using Jest to have unit testing for aqi service
+   ![Test Image 1](unit-test.png)
+
+## Running end-to-end test
+
+1. run npm run dev first and keep the program running
 
 2. npm run test-e2e to lauch the test
 
@@ -56,7 +66,6 @@ This application is deployed to Heroku, here is the [link](https://ap-visual.her
 - Issue: I got CORS (Cross-Origin Resource Sharing) “issues” when I deployed the application on Heroku.
 - First solution: I used cors-anywhere service(https://cors-anywhere.herokuapp.com/) but found there is limited visit and the response speed is very slow.
 - Improved solution: I improved it creating back-end proxy service to avoid CORS issues.
-
 
 ## Prerequisites
 
@@ -69,19 +78,19 @@ npm install
 
 ## Running locally
 
-Run the client & server with concurrently: 
+Run the client & server with concurrently:
 
 npm run dev
 
-Run the Express server only: 
+Run the Express server only:
 
 npm run server
 
-Run the React client only: 
+Run the React client only:
 
 npm run client
 
-Server runs on http://localhost:5000 and client on http://localhost:3000 
+Server runs on http://localhost:5000 and client on http://localhost:3000
 
 ## One highlight when running locally
 
