@@ -11,13 +11,15 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^26.4.2"
+  },
   "scripts": {
     "start": "node ./server/server",
     "server": "nodemon ./server/server",
     "client": "npm start --prefix client",
     "dev": "concurrently \" npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest ./server/_tests_/route.test",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {

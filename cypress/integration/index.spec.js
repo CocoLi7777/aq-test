@@ -1,5 +1,3 @@
-const { intersection } = require('ramda')
-
 describe('Real-time AQI APP end2end test', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
