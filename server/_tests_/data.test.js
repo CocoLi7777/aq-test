@@ -1,4 +1,4 @@
-const { getLocal, getFeed, getSearch } = require('./../controllers/data')
+const { getLocal, getFeed, getSearch } = require('../controllers/data')
 
 describe('test api service', () => {
   it('test api service for local aqi data', () => {
